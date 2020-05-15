@@ -6,18 +6,23 @@ module.exports = function(sequelize, DataTypes) {
   const User = sequelize.define(
     "User",
     {
-      // The email cannot be null, and must be a proper email before creation
-      email: {
+      // The username cannot be null, and must be a proper username before creation
+      username: {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,
         validate: {
-          isEmail: true
+          len: [1, 20]
         }
       },
       // The password cannot be null
       password: {
         type: DataTypes.STRING,
+        allowNull: false
+      },
+      // user's overall score
+      average_score: {
+        type: DataTypes.INTEGER,
         allowNull: false
       }
     },
@@ -49,14 +54,6 @@ module.exports = function(sequelize, DataTypes) {
       null
     );
   });
-
-  User.associate = function(models) {
-    // Associating User with Posts
-    // When an User is deleted, also delete any associated Posts
-    User.hasMany(models.Post, {
-      onDelete: "cascade"
-    });
-  };
 
   return User;
 };
