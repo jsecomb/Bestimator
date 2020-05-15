@@ -1,0 +1,130 @@
+/* DEFAULT SIZE xs (less than 576px) */
+html {
+    background-color: #191919;
+}
+section {
+    text-align: center;
+}
+.page-header-title-logo {
+    margin-top: 30px;
+    font-size: 38px;
+    color: #ffd700;
+}
+.app-logo {
+    color: #f9f9f9;
+    background-color: #ffd700;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 40px;
+}
+.page-title-best {
+    background-color: #f9f9f9;
+    font-weight: bold;
+    padding: 10px;
+    padding-right: 2px;
+    border-radius: 5px 0 0 5px;
+}
+.page-title-imator {
+    background-color: #ffd700;
+    color: #f9f9f9;
+    padding: 10px;
+    padding-left: 2px;
+    border-radius: 0 5px 5px 0;
+}
+.main-page-subheading {
+    color: #f9f9f9;
+    padding-top: 10px;
+    font-size: 18px;
+}
+.subheading-accent {
+    color: #ffd700;
+    font-weight: bold;
+}
+.main-image {
+    width: 80%;
+    border-radius: 5px;
+}
+.game-explanation {
+    font-size: 18px;
+    color: #f9f9f9;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.explanation-accent {
+    color: #ffd700;
+}
+.main-page-buttons {
+    background-color: #ffd700;
+    width: 80%;
+    color: #191919;
+    font-weight: bold;
+}
+.main-page-buttons:hover {
+    cursor: pointer;
+    background-color: #7f6b00;
+    color: #f9f9f9;
+}
+
+/* MEDIA QUERIES ========================================================== */
+
+/* SCREEN SIZE sm (576px - 767px) */
+@media (min-width: 576px) {
+    .page-header-title-logo, .app-logo {
+        font-size: 60px;
+    }
+    .main-page-subheading {
+        font-size: 27px;
+    }
+    .main-image, .main-page-buttons {
+        width: 70%;
+    }
+    .game-explanation {
+        font-size: 15px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+/* SCREEN SIZE md (768px - 991px) */
+@media (min-width: 768px) {
+    .page-header-title-logo, .app-logo {
+        font-size: 80px;
+    }
+    .main-page-subheading {
+        font-size: 30px;
+    }
+    .main-image, .main-page-buttons {
+        width: 85%;
+    }
+    .game-explanation {
+        font-size: 24px;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+/* SCREEN SIZE lg (992px - 1199px) */
+@media (min-width: 992px) {
+    .page-header-title-logo, .app-logo {
+        font-size: 80px;
+    }
+    .main-page-subheading {
+        font-size: 30px;
+    }
+    .main-image {
+        margin-left: 30px;
+        margin-right: 60px;
+        width: 70%;
+    }
+    .game-explanation {
+        font-size: 27px;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .main-page-buttons {
+        width: 90%;
+    }
+}
+
+/* SCREEN SIZE xl (1200px and up) */
+@media (min-width: 1200px) {}
