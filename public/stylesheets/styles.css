@@ -113,6 +113,13 @@ section {
 #link-main-page {
     margin-top: 5%;
 }
+#forms {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#main-page {
+    color: gray;
+}
 /* MEDIA QUERIES ========================================================== */
 
 /* SCREEN SIZE sm (576px - 767px) */
