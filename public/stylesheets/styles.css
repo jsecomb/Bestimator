@@ -106,7 +106,13 @@ section {
     background-color: #7f6b00;
     color: #f9f9f9;
 }
-
+#loginButton {
+    width: 100px;
+    margin-bottom: 5%;
+}
+#link-main-page {
+    margin-top: 5%;
+}
 /* MEDIA QUERIES ========================================================== */
 
 /* SCREEN SIZE sm (576px - 767px) */
