@@ -4,6 +4,7 @@ html {
 }
 section {
     text-align: center;
+    background-color: #191919;
 }
 .page-header-title-logo {
     margin-top: 30px;
@@ -64,6 +65,47 @@ section {
     background-color: #7f6b00;
     color: #f9f9f9;
 }
+.question-counter {
+    margin-top: 30px;
+    font-size: 38px;
+    color: #ffd700;
+}
+.current-count {
+    color: #f9f9f9;
+    font-weight: bold;
+    background-color: #ffd700;
+    padding: 10px;
+    border-radius: 5px;
+}
+.game-page-image {
+    width: 80%;
+    border-radius: 5px;
+}
+.question-response-column {
+    margin-right: 0px;
+}
+.question-text {
+    font-size: 18px;
+    color: #ffd700;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.user-response {
+    width: 90%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.guess-button {
+    width: 70%;
+    background-color: #ffd700;
+    color: #191919;
+    font-weight: bold;
+}
+.guess-button:hover {
+    cursor: pointer;
+    background-color: #7f6b00;
+    color: #f9f9f9;
+}
 
 /* MEDIA QUERIES ========================================================== */
 
@@ -82,6 +124,11 @@ section {
         font-size: 15px;
         padding-left: 20px;
         padding-right: 20px;
+    }
+    .question-text {
+        font-size: 21px;
+        padding-left: 25px;
+        padding-right: 25px;
     }
 }
 
@@ -123,6 +170,9 @@ section {
     }
     .main-page-buttons {
         width: 90%;
+    }
+    .question-response-column {
+        margin-right: 30px;
     }
 }
 
