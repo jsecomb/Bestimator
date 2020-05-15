@@ -1,15 +1,15 @@
 {
   "development": {
     "username": "root",
-    "password": "root",
-    "database": "project_2_local",
+    "password": "r00tPa$$",
+    "database": "bestimator_local",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": null,
-    "database": "project_2_test",
+    "database": "bestimator_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
