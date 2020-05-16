@@ -25,7 +25,7 @@ router.get("/:id", function (req, res) {
  */
 router.post("/", function (req, res) {
   db.Answer.create({
-    UserId: 1,
+    UserId: req.user.id,
     ...req.body
   })
     .then(dbModel => res.json(dbModel))
