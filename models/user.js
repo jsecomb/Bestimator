@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false,
         unique: true,
         validate: {
-          len: [1, 20],
+          len: [1, 40],
         },
       },
       // The password cannot be null
@@ -22,6 +22,7 @@ module.exports = function(sequelize, DataTypes) {
       },
       // user's overall score
       average_score: {
+        default: 0,
         type: DataTypes.INTEGER,
         allowNull: false,
       },
