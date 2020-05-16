@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
     answer_score: {
       type: DataTypes.INTEGER,
       allowNull: false
-    },
+    }
   });
 
   Answer.associate = function(models) {
@@ -18,8 +18,8 @@ module.exports = function(sequelize, DataTypes) {
     // An Answer can't be created without a User due to the foreign key constraint
     Answer.belongsTo(models.User, {
       foreignKey: {
-        allowNull: false,
-      },
+        allowNull: false
+      }
     });
   };
 
