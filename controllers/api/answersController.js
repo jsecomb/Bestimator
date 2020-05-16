@@ -23,9 +23,13 @@ router.get("/:id", function (req, res) {
  * Answer - Create
  * Notice how we are also taking in the User Id! Important!
  */
-router.post("/", function (req, res) {
+router.post("/", async function (req, res) {
+  var correctAnswer = await db.Question.findByPk(req.body.QuestionId).get("answer");
+  var score = 100*(1-(Math.abs(req.body.user_response - correctAnswer))/correctAnswer);
+  console.log(score);
   db.Answer.create({
     UserId: req.user.id,
+    answer_score: score,
     ...req.body
   })
     .then(dbModel => res.json(dbModel))
