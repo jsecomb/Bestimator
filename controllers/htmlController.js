@@ -49,6 +49,20 @@ router.get("/game", isAuthenticated, function(req, res) {
 });
 
 /**
+ * Player page
+ */
+router.get("/player", isAuthenticated, function(req, res) {
+  res.render("player", { user: req.user });
+});
+
+ /**
+ * Leaderboard page
+ */
+router.get("/leaderboard", isAuthenticated, function(req, res) {
+  res.render("leaderboard", { user: req.user });
+});
+
+/**
  * Forum Page -
  * Notice loading our posts, with that include!
  */
