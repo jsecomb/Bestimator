@@ -43,7 +43,7 @@ app.use(routes);
 
 let config = { force: false };
 if (process.env.NODE_ENV === "test") {
-  config.force = true;
+  config.force = false;
 }
 // if we need it! {force:true}
 // Syncing our database and logging a message to the user upon success

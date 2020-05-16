@@ -1,20 +1,21 @@
 <section>
-    <div class="columns is-multiline">
+    <div id="startButton">
+        <button type="button" id="startButton">Start Quiz!</button>
+    </div>
+    <div class="columns is-multiline" id="gameDisplay">
         <!-- question counter -->
         <div class="column is-full">
-            <h1 class="question-counter">Q: <span id="currentCount" class="current-count">?</span> of 5</h1>
+            <h1 class="question-counter">Q: <span id="currentCount" class="current-count"></span> of 5</h1>
         </div>
         <div class="column is-full">
             <div class="columns is-vcentered">
                 <!-- image -->
                 <div class="column">
-                    <img class="game-page-image" src="https://bulma.io/images/placeholders/128x128.png">
+                    <div id = "questionImg" class="question-Img" ></div>
                 </div>
                 <!-- question text -->
                 <div class="column question-response-column">
-                    <p id="questionText" class="question-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Consequuntur impedit delectus esse a velit rem quasi, optio, maxime ad unde eaque tenetur
-                        praesentium quaerat vero blanditiis! Numquam minus commodi molestias?</p>
+                    <div id="questionText" class="question-text"></div>
                     <input id="userResponse" class="input user-response is-warning" type="text"
                         placeholder="your answer">
                     <button id="guessButton" class="guess-button button is-large">make a guess!</button>
@@ -43,6 +44,71 @@
 </section>
 
 <script>
+    
+    $(document).ready(function () {
+
+        document.getElementById("gameDisplay").style.display = "none";
+        
+        var questionText = document.createElement("p");
+        var questionImg = document.createElement("img");
+        var userResponse = $("#user-response");
+        var questionId;
+        var questionsAnswered;
+
+        function startQuiz(){
+            questionId = 1
+            questionsAnswered = 0;
+            $(document).on("click", "#startButton", displayQuestion);
+        }
+
+        function getQuestion(){
+            $.get("/api/questions/" + questionId, function (data) {
+                questionText.innerHTML = data[0].question;
+                questionImg.src = data[0].image_url;
+                document.getElementById("questionText").appendChild(questionText);
+                document.getElementById("questionImg").appendChild(questionImg);
+                document.getElementById("currentCount").innerText = questionId.toString();
+            });
+        }
+
+        function displayQuestion(){
+            if (questionsAnswered === 5){
+                showScore()
+            }
+            else {
+                document.getElementById("gameDisplay").style.display = "block";
+                document.getElementById("startButton").style.display = "none";
+                getQuestion();
+                $(document).on("click", "#guessButton", function(){
+                    var newAnswer = {
+                        user_response: document.getElementById("userResponse").value,
+                        answer_score: 100
+                    };
+                    console.log(newAnswer);
+                    postAnswer(newAnswer);
+                })
+            }
+        }
+
+        function postAnswer(answer){
+            $.ajax({
+            method: "POST",
+            url: "/api/answers",
+            data: answer
+            })
+            .then(function() {
+                console.log("answer posted");
+            });
+        }
+
+        function showScore(){
+            alert("this function will show your score and redirect you back to home page")
+        }
+
+        startQuiz();
+
+    });
+
     // JAVASCRIPT FOR "/game" game page HERE!
 
     // make modal appear when click on button

@@ -14,9 +14,13 @@ router.get("/", function(req, res) {
  * Question - Read One
  */
 router.get("/:id", function(req, res) {
-  db.Question.findById(req.params.id)
-    .then(dbModel => res.json(dbModel))
-    .catch(err => res.status(422).json(err));
+  db.Question.findAll({
+    where: {
+      id: req.params.id
+    }
+  }).then(function(Question) {
+    res.json(Question);
+  });
 });
 
 module.exports = router;
