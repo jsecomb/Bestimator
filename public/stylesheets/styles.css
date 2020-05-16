@@ -106,12 +106,12 @@ section {
     background-color: #7f6b00;
     color: #f9f9f9;
 }
-#loginButton {
-    width: 100px;
+#loginButton, #signupButton {
+    width: 75%;
     margin-bottom: 5%;
 }
 #link-main-page {
-    margin-top: 5%;
+    margin-top: 10%;
 }
 #forms {
     margin-top: 20px;
@@ -119,7 +119,19 @@ section {
 }
 #main-page {
     color: gray;
+    font-size: 20px;
 }
+#main-page:hover {
+    color: gold;
+}
+.login-input, .password-input {
+    width: 90%;
+}
+.login-labels {
+    color: #f9f9f9;
+    font-size: 25px;
+}
+
 /* MEDIA QUERIES ========================================================== */
 
 /* SCREEN SIZE sm (576px - 767px) */
@@ -161,9 +173,13 @@ section {
         padding-left: 30px;
         padding-right: 30px;
     }
+    #loginButton, #signupButton {
+        width: 50%;
+        margin-bottom: 5%;
+    }
 }
 
-/* SCREEN SIZE lg (992px - 1199px) */
+/* SCREEN SIZE lg (992px and up) */
 @media (min-width: 992px) {
     .page-header-title-logo, .app-logo {
         font-size: 80px;
@@ -188,6 +204,3 @@ section {
         margin-right: 30px;
     }
 }
-
-/* SCREEN SIZE xl (1200px and up) */
-@media (min-width: 1200px) {}

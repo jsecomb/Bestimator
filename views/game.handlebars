@@ -22,8 +22,38 @@
             </div>
         </div>
     </div>
+
+    <div id="modalContainer" class="modal is-centered">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="content">
+                        <p class="modal-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio doloribus
+                            atque enim aut voluptatibus nemo sed minus, natus nobis neque doloremque consequatur dolores
+                            dolorem. Nostrum corporis consequatur amet sit accusantium?</p>
+                        <button id="modalButton" class="button is-warning is-large">next</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </section>
 
 <script>
-            // JAVASCRIPT FOR "?" ? page HERE!
+    // JAVASCRIPT FOR "/game" game page HERE!
+
+    // make modal appear when click on button
+    $("#guessButton").on("click", function (event) {
+        event.preventDefault();
+        $("#modalContainer").addClass("is-active");
+    });
+    // make modal disappear when click on button
+    $("#modalButton").on("click", function (event) {
+        event.preventDefault();
+        $("#modalContainer").removeClass("is-active");
+    });
+
 </script>
