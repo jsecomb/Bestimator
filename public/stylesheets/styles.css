@@ -156,6 +156,13 @@ section {
   padding-bottom: 30px;
   border-radius: 5px;
 }
+#leaderboardButton, #logoutButton {
+    width: 50%;
+    margin-top: 5%;
+}
+
+
+
 
 /* MEDIA QUERIES ========================================================== */
 
