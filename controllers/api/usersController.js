@@ -32,23 +32,4 @@ router.post("/", function(req, res) {
     .catch(err => res.status(422).json(err));
 });
 
-/**
- * User - Update
- */
-router.put("/:id", function(req, res) {
-  db.User.findOneAndUpdate({ _id: req.params.id }, req.body)
-    .then(dbModel => res.json(dbModel))
-    .catch(err => res.status(422).json(err));
-});
-
-/**
- * User - Delete
- */
-router.delete("/:id", function(req, res) {
-  db.User.findById({ _id: req.params.id })
-    .then(dbModel => dbModel.remove())
-    .then(dbModel => res.json(dbModel))
-    .catch(err => res.status(422).json(err));
-});
-
 module.exports = router;
