@@ -44,7 +44,7 @@ router.get("/login", function(req, res) {
 /**
  * Game page
  */
-router.get("/game", function(req, res) {
+router.get("/game", isAuthenticated, function(req, res) {
   res.render("game", { user: req.user });
 });
 
