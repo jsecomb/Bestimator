@@ -131,6 +131,13 @@ section {
     color: #f9f9f9;
     font-size: 25px;
 }
+#leaderboardButton, #logoutButton {
+    width: 50%;
+    margin-top: 5%;
+}
+
+
+
 
 /* MEDIA QUERIES ========================================================== */
 
