@@ -32,5 +32,4 @@ router.post("/", function(req, res) {
     .catch(err => res.status(422).json(err));
 });
 
-
 module.exports = router;
