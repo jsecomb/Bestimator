@@ -48,4 +48,16 @@
 
 <script>
             // JAVASCRIPT FOR "/" main page HERE!
+
+            // login button --> login page ("/login")
+            $("#loginButton").on("click", function(event) {
+                event.preventDefault();
+                window.location.href="/login";
+            });
+
+            // signup button --> signup page ("/signup")
+            $("#signupButton").on("click", function(event) {
+                event.preventDefault();
+                window.location.href="/signup";
+            });
 </script>
