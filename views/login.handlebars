@@ -1,41 +1,34 @@
-
-<body>
-
-
-    <section>
-        <div class="columns is-multiline is-centered">
-            <!-- link back to main page -->
-            <div id="link-main-page" class="is-centered is-vcentered">
-                <p ><a id="main-page" href="/views/index.handlebars">Back to the Main Page</a></p>
-            </div>
-            <!-- Bestimator logo -->
-            <div class="column is-full is-centered">
-                <h1 class="page-header-title-logo"><span class="page-title-best"><i
-                            class="app-logo fas fa-calculator"></i>
-                        BEST</span><span class="page-title-imator">imator</span></h1>
-            </div>
-            <!-- input fields -->
-            <div id="forms" class="column is-full is-one-third is-centered">
-                <form>
-                    <label for="username">Username</label><br>
-                    <input type="text" id="username" name="username"><br><br>
-                    <label for="password">Password:</label><br>
-                    <input type="text" id="password" name="password"><br><br>
-                  </form>
-            </div>
-            <!-- login button -->
-            <div class="column is-full is-centered">
-                <div class="columns is-vcentered is-centered">
-
-                    <button id="loginButton" class="main-page-buttons  button">login</button>
-
-                </div>
-            </div>
-
-
+<section>
+    <div class="columns is-multiline is-centered">
+        <!-- link back to main page -->
+        <div id="link-main-page" class="is-centered is-vcentered">
+            <p><a id="main-page" href="/">← back to the main page</a></p>
         </div>
-    </section>
-
-    <script>
-            // JAVASCRIPT FOR "/" main page HERE!
-    </script>
+        <!-- Bestimator logo -->
+        <div class="column is-full is-centered">
+            <h1 class="page-header-title-logo"><span class="page-title-best"><i
+                        class="app-logo fas fa-calculator"></i>BEST</span><span class="page-title-imator">imator</span>
+            </h1>
+        </div>
+        <!-- input fields -->
+        <div id="forms" class="column is-full is-centered">
+            <form>
+                <label for="username" class="login-labels">Username:</label><br>
+                <input type="text" id="usernameInput" name="username" class="login-input input is-large"
+                    placeholder="1-20 characters"><br><br>
+                <label for="password" class="login-labels">Password:</label><br>
+                <input type="text" id="passwordInput" name="password" class="password-input input is-large"
+                    placeholder="not 'root'"><br><br>
+            </form>
+        </div>
+        <!-- login button -->
+        <div class="column is-full is-centered">
+            <div class="columns is-vcentered is-centered">
+                <button id="loginButton" class="main-page-buttons button is-large">login</button>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+            // JAVASCRIPT FOR "/login" page HERE!
+</script>
