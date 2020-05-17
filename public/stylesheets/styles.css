@@ -133,36 +133,64 @@ section {
   color: #f9f9f9;
   font-size: 25px;
 }
-.leaderboard-links {
+.leaderboard-links, .player-page-links {
   margin-top: 30px;
-  margin-left: 10px;
+  margin-left: 0px;
 }
 .leaderboard-button {
   background-color: #ffd700;
   color: #191919;
   font-weight: bold;
 }
+.leaderboard-button:hover {
+  cursor: pointer;
+  background-color: #7f6b00;
+  color: #f9f9f9;
+}
 .leaderboard-header {
   color: #f9f9f9;
   font-size: 25px;
 }
-.leaderboard-list-item {
-  background-color: #ffd700;
-  color: #191919;
+.leaderboard-list-item, .score-list-item {
+  background-color: #7f6b00;
+  color: #f9f9f9;
   font-size: 20px;
   margin-left: 50px;
   margin-right: 50px;
+  margin-bottom: 15px;
   padding-top: 30px;
   padding-bottom: 30px;
   border-radius: 5px;
 }
-#leaderboardButton, #logoutButton {
-    width: 50%;
-    margin-top: 5%;
+.player-heading {
+  color: #f9f9f9;
+  font-size: 25px;
 }
-
-
-
+.play-button {
+  background-color: #ffd700;
+  color: #191919;
+  font-weight: bold;
+  width: 80%;
+  margin-top: 30px;
+}
+.play-button:hover {
+  cursor: pointer;
+  background-color: #7f6b00;
+  color: #f9f9f9;
+}
+.stat-score, .stat-rank {
+  background-color: #fff7cc;
+  color: #7f6b00;
+  font-size: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.stats-label {
+  font-weight: bold;
+}
+.user-rank, .user-accuracy {
+  font-size: 30px;
+}
 
 /* MEDIA QUERIES ========================================================== */
 
@@ -202,6 +230,17 @@ section {
   .leaderboard-list-item {
     font-size: 24px;
   }
+  .play-button {
+    width: 50%;
+  }
+  .stat-score, .stat-rank {
+    font-size: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  .user-rank, .user-accuracy {
+    font-size: 35px;
+  }
 }
 
 /* SCREEN SIZE md (768px - 991px) */
@@ -237,10 +276,10 @@ section {
   .leaderboard-header {
     font-size: 30px;
   }
-  .leaderboard-list-item {
+  .leaderboard-list-item, .score-list-item {
     font-size: 24px;
-    padding-left: 150px;
-    padding-right: 150px;
+    padding-left: 250px;
+    padding-right: 250px;
   }
 }
 
@@ -269,9 +308,13 @@ section {
   .question-response-column {
     margin-right: 30px;
   }
-  .leaderboard-list-item {
+  .leaderboard-list-item, .score-list-item {
     font-size: 27px;
-    padding-left: 180px;
-    padding-right: 180px;
+    padding-left: 300px;
+    padding-right: 300px;
+  }
+  .stat-score, .stat-rank {
+    margin-left: 60px;
+    margin-right: 60px;
   }
 }
