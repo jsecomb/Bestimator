@@ -76,7 +76,6 @@
             const questionId = $(this).attr("data-id");
             var answer = document.getElementById("userResponse").value;
             var newAnswer = {
-                UserId: {{user.id}},
                 QuestionId: questionId,
                 user_response: answer
             };
