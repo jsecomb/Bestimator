@@ -1,0 +1,63 @@
+<section>
+    <div class="columns is-centered is-multiline">
+        <!-- button links-->
+        <div class="column">
+            <div class="player-page-links columns is-mobile">
+                <div class="column">
+                    <button id="leaderboardButton" class="leaderboard-button button is-large">leaderboard</button>
+                </div>
+                <div class="column">
+                    <button id="logoutButton" class="leaderboard-button button is-large">logout</button>
+                </div>
+            </div>
+        </div>
+        <!-- page title -->
+        <div class="column is-full">
+            <h1 class="leaderboard-header">WELCOME<span id="usernameEntry" class="subheading-accent username-entry">
+                    *USERNAME*</span></h1>
+        </div>
+        <!-- player's score & rank -->
+        <div class="column is-full">
+            <h4 class="player-heading">your current score and rank:</h4>
+        </div>
+        <!-- player's stats -->
+        <div class="column is-full">
+            <div id="userStats" class="columns is-centered is-mobile user-stats">
+                <div id="statScore" class="column stat-score">
+                    <p class="stats-label">accuracy</p>
+                    <p id="userAccuracy" class="stat-user-number user-accuracy">??%</p>
+                </div>
+                <div id="statRank" class="column stat-rank">
+                    <p class="stats-label">rank</p>
+                    <p id="userRank" class="stat-user-number user-rank">#?</p>
+                </div>
+            </div>
+        </div>
+        <!-- PLAY button -->
+        <div class="column is-full">
+            <button id="playButton" class="play-button button is-large">PLAY</button>
+        </div>
+        <!-- player's scores-->
+        <div class="column is-full">
+            <h4 class="player-heading">your scores:</h4>
+        </div>
+        <!-- user scores items -->
+        <ul id="userScores" class="userScores">
+            <li class="score-list-item"><span class="player-info">date | score</span></li>
+        </ul>
+    </div>
+</section>
+<script>
+    // JavaScript for player's page at "/player" route
+
+    // button to go to player's profile page
+        $("#leaderboardButton").on("click", function(event) {
+            event.preventDefault();
+            window.location.href="/leaderboard";
+        });
+        //button to log out
+        $("#logoutButton").on("click", function(event) {
+            event.preventDefault();
+            window.location.href="/auth/logout";
+        });
+</script>

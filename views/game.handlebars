@@ -1,7 +1,4 @@
 <section>
-    <div id="startButton">
-        <button type="button" id="startButton">Start Quiz!</button>
-    </div>
     <div class="columns is-multiline" id="gameDisplay">
         <!-- question counter -->
         <div class="column is-full">
@@ -31,9 +28,7 @@
             <div class="card">
                 <div class="card-content">
                     <div class="content">
-                        <p class="modal-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio doloribus
-                            atque enim aut voluptatibus nemo sed minus, natus nobis neque doloremque consequatur dolores
-                            dolorem. Nostrum corporis consequatur amet sit accusantium?</p>
+                        <p id="modal-text" class="modal-text">You have finished today's quiz! Your score today was:</p>
                         <button id="modalButton" class="button is-warning is-large">next</button>
                     </div>
                 </div>
@@ -47,18 +42,17 @@
     
     $(document).ready(function () {
 
-        //document.getElementById("gameDisplay").style.display = "none";
-        
         var questionText = document.createElement("p");
         var questionImg = document.createElement("img");
+        var scoreDisplay = document.createElement("p");
         var userResponse = $("#user-response");
         var questionsAnswered;
         let questions = [];
+        let dayScores = [];
         let questionsIndex = 0;
 
         function startQuiz(){
             questionsAnswered = 0;
-            //$(document).on("click", "#startButton", displayQuestion);
             getQuestions();
         }
 
@@ -72,19 +66,18 @@
         function showQuestion() {
             questionText.innerHTML = questions[questionsIndex].question;
             questionImg.src = questions[questionsIndex].image_url;
-            document.getElementById("questionText").appendChild(questionText);
-            document.getElementById("questionImg").appendChild(questionImg);
-            document.getElementById("currentCount").innerText = (questionsIndex + 1).toString();
+            $("#questionText").append(questionText);
+            $("#questionImg").append(questionImg);
+            $("#currentCount").text((questionsIndex + 1).toString());
             $("#guessButton").attr("data-id", questions[questionsIndex].id);
         }
 
         $(document).on("click", "#guessButton", function () {
             const questionId = $(this).attr("data-id");
+            var answer = document.getElementById("userResponse").value;
             var newAnswer = {
-                UserId: {{user.id}},
                 QuestionId: questionId,
-                user_response: document.getElementById("userResponse").value,
-                answer_score: 100
+                user_response: answer
             };
             console.log(newAnswer);
             postAnswer(newAnswer);
@@ -96,10 +89,13 @@
             url: "/api/answers",
             data: answer
             })
-            .then(function() {
+            .then(function(response) {
+                console.log(response);
+                dayScores.push(response.answer_score);
                 console.log("answer posted");
-                if (questionsIndex === questions.length){
+                if (questionsIndex === 4){
                     showScore();
+                //change line 97 back to "if (questionsIndex === questions.length)" once questions is correct length
                 }
                 else{
                     questionsIndex++;
@@ -109,7 +105,18 @@
         }
 
         function showScore(){
-            alert("this function will show your score and redirect you back to home page")
+            let sum = 0;
+            for (var k = 0; k < dayScores.length; k++){
+                sum += dayScores[k];
+            }
+            scoreDisplay.innerHTML = `${Math.floor(sum/dayScores.length)}%`;
+            $("#modal-text").append(scoreDisplay);
+            $("#modalContainer").addClass("is-active");
+            $("#modalButton").on("click", function (event) {
+                event.preventDefault();
+                $("#modalContainer").removeClass("is-active");
+                window.location.replace("/auth/logout");
+            });
         }
 
         startQuiz();

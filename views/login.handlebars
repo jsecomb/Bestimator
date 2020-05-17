@@ -1,72 +1,72 @@
 <section>
-    <div class="columns is-multiline is-centered">
-        <!-- link back to main page -->
-        <div id="link-main-page" class="is-centered is-vcentered">
-            <p><a id="main-page" href="/">← back to the main page</a></p>
-        </div>
-        <!-- Bestimator logo -->
-        <div class="column is-full is-centered">
-            <h1 class="page-header-title-logo"><span class="page-title-best"><i
-                        class="app-logo fas fa-calculator"></i>BEST</span><span class="page-title-imator">imator</span>
-            </h1>
-        </div>
-        <!-- input fields -->
-        <div id="forms" class="column is-full is-centered">
-            <form>
-                <label for="username" class="login-labels">Username:</label><br>
-                <input type="text" id="usernameInput" name="username" class="login-input input is-large"
-                    placeholder="1-20 characters"><br><br>
-                <label for="password" class="login-labels">Password:</label><br>
-                <input type="text" id="passwordInput" name="password" class="password-input input is-large"
-                    placeholder="not 'root'"><br><br>
-            </form>
-        </div>
-        <!-- login button -->
-        <div class="column is-full is-centered">
-            <div class="columns is-vcentered is-centered">
-                <button id="loginButton" class="main-page-buttons button is-large">login</button>
-            </div>
-        </div>
+  <div class="columns is-multiline is-centered">
+    <!-- link back to main page -->
+    <div id="link-main-page" class="is-centered is-vcentered">
+      <p><a id="main-page" href="/">← back to the main page</a></p>
     </div>
+    <!-- Bestimator logo -->
+    <div class="column is-full is-centered">
+      <h1 class="page-header-title-logo"><span class="page-title-best"><i
+            class="app-logo fas fa-calculator"></i>BEST</span><span class="page-title-imator">imator</span>
+      </h1>
+    </div>
+    <!-- input fields -->
+    <div id="forms" class="column is-full is-centered">
+      <form>
+        <label for="username" class="login-labels">Username:</label><br>
+        <input type="text" id="usernameInput" name="username" class="login-input input is-large">
+        <br><br>
+        <label for="password" class="login-labels">Password:</label><br>
+        <input type="text" id="passwordInput" name="password" class="password-input input is-large">
+        <br><br>
+      </form>
+    </div>
+    <!-- login button -->
+    <div class="column is-full is-centered">
+      <div class="columns is-vcentered is-centered">
+        <button id="loginButton" class="main-page-buttons button is-large">login</button>
+      </div>
+    </div>
+  </div>
 </section>
 <script>
-    $(document).ready(function() {
-  // Getting references to our form and inputs
-  //var signupForm = $("form.signup");
-  var usernameInput = $("#usernameInput");
-  var passwordInput = $("#passwordInput");
+  $(document).ready(function () {
+    // Getting references to our form and inputs
+    //var signupForm = $("form.signup");
+    var usernameInput = $("#usernameInput");
+    var passwordInput = $("#passwordInput");
 
-  // When the form is submitted, we validate there's an email and password entered
-  $("#loginButton").on("click", function(event) {
-    event.preventDefault();
-    var userData = {
-      username: usernameInput.val().trim(),
-      password: passwordInput.val().trim()
-    };
+    // When the form is submitted, we validate there's an email and password entered
+    $("#loginButton").on("click", function (event) {
+      event.preventDefault();
+      var userData = {
+        username: usernameInput.val().trim(),
+        password: passwordInput.val().trim()
+      };
 
-    if (!userData.username || !userData.password) {
-      return;
-    }
+      if (!userData.username || !userData.password) {
+        return;
+      }
 
-    // If we have an email and password we run the signUp function and clear the form
-    signupUser(userData.username, userData.password);
-    usernameInput.val("");
-    passwordInput.val("");
-  });
+      // If we have an email and password we run the signUp function and clear the form
+      signupUser(userData.username, userData.password);
+      usernameInput.val("");
+      passwordInput.val("");
+    });
 
-  // signUp does a post to our "auth/login" route and if successful, redirects us the the members page
-  function signupUser(username, password) {
-    $.post("/auth/login", {
-      username: username,
-      password: password
-    })
-      .then(function() {
-        window.location.replace("/game");
-        // If there's an error, log the error
+    // signUp does a post to our "auth/login" route and if successful, redirects us the the members page
+    function signupUser(username, password) {
+      $.post("/auth/login", {
+        username: username,
+        password: password
       })
-      .catch(function(err) {
-        console.log(err);
-      });
-  }
-});
+        .then(function () {
+          window.location.replace("/game");
+          // If there's an error, log the error
+        })
+        .catch(function (err) {
+          console.log(err);
+        });
+    }
+  });
 </script>

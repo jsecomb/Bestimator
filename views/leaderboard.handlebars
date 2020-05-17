@@ -3,10 +3,10 @@
         <!-- button links-->
         <div class="column">
             <div class="leaderboard-links columns is-mobile">
-                <div class="column">
+                <div class="column is-half">
                     <button id="userProfile" class="leaderboard-button button is-large">my profile</button>
                 </div>
-                <div class="column">
+                <div class="column is-half">
                     <button id="logoutButton" class="leaderboard-button button is-large">logout</button>
                 </div>
             </div>
@@ -29,5 +29,16 @@
     </div>
 </section>
 <script>
-    // leaderboard "/leaderboard" script here
+        // leaderboard "/leaderboard" script here
+
+        // button to go to player's profile page
+        $("#userProfile").on("click", function(event) {
+            event.preventDefault();
+            window.location.href="/player";
+        });
+        //button to log out
+        $("#logoutButton").on("click", function(event) {
+            event.preventDefault();
+            window.location.href="/auth/logout";
+        });
 </script>

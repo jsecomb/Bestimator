@@ -4,34 +4,34 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1],
-      },
+        len: [1]
+      }
     },
     question: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     unit: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1],
-      },
+        len: [1]
+      }
     },
     answer: {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
-        len: [1],
-      },
+        len: [1]
+      }
     },
     image_url: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isUrl: true,
-      },
-    },
+        isUrl: true
+      }
+    }
   });
 
   return Question;
