@@ -133,7 +133,8 @@ section {
   color: #f9f9f9;
   font-size: 25px;
 }
-.leaderboard-links, .player-page-links {
+.leaderboard-links,
+.player-page-links {
   margin-top: 30px;
   margin-left: 0px;
 }
@@ -151,7 +152,8 @@ section {
   color: #f9f9f9;
   font-size: 25px;
 }
-.leaderboard-list-item, .score-list-item {
+.leaderboard-list-item,
+.score-list-item {
   background-color: #7f6b00;
   color: #f9f9f9;
   font-size: 20px;
@@ -178,7 +180,8 @@ section {
   background-color: #7f6b00;
   color: #f9f9f9;
 }
-.stat-score, .stat-rank {
+.stat-score,
+.stat-rank {
   background-color: #fff7cc;
   color: #7f6b00;
   font-size: 20px;
@@ -188,7 +191,8 @@ section {
 .stats-label {
   font-weight: bold;
 }
-.user-rank, .user-accuracy {
+.user-rank,
+.user-accuracy {
   font-size: 30px;
 }
 
@@ -233,12 +237,14 @@ section {
   .play-button {
     width: 50%;
   }
-  .stat-score, .stat-rank {
+  .stat-score,
+  .stat-rank {
     font-size: 20px;
     margin-left: 40px;
     margin-right: 40px;
   }
-  .user-rank, .user-accuracy {
+  .user-rank,
+  .user-accuracy {
     font-size: 35px;
   }
 }
@@ -276,7 +282,8 @@ section {
   .leaderboard-header {
     font-size: 30px;
   }
-  .leaderboard-list-item, .score-list-item {
+  .leaderboard-list-item,
+  .score-list-item {
     font-size: 24px;
     padding-left: 250px;
     padding-right: 250px;
@@ -295,7 +302,7 @@ section {
   .main-image {
     margin-left: 30px;
     margin-right: 60px;
-    width: 70%;
+    width: 63%;
   }
   .game-explanation {
     font-size: 27px;
@@ -308,12 +315,14 @@ section {
   .question-response-column {
     margin-right: 30px;
   }
-  .leaderboard-list-item, .score-list-item {
+  .leaderboard-list-item,
+  .score-list-item {
     font-size: 27px;
     padding-left: 300px;
     padding-right: 300px;
   }
-  .stat-score, .stat-rank {
+  .stat-score,
+  .stat-rank {
     margin-left: 60px;
     margin-right: 60px;
   }

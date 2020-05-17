@@ -33,31 +33,30 @@
                     <p class="game-explanation">
                         and see if you're the <span class="explanation-accent">BESTimator</span>!
                     </p>
+                    <br>
+                    <!-- buttons (login & signup) -->
+                    <div class="column">
+                        <button id="loginButton" class="main-page-buttons button is-large">login</button>
+                        <button id="signupButton" class="main-page-buttons button is-large">sign up</button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- buttons (login & signup) -->
-        <div class="column is-half">
-            <button id="loginButton" class="main-page-buttons button is-large">login</button>
-        </div>
-        <div class="column is-half">
-            <button id="signupButton" class="main-page-buttons button is-large">sign up</button>
         </div>
     </div>
 </section>
 
 <script>
-            // JAVASCRIPT FOR "/" main page HERE!
+    // JAVASCRIPT FOR "/" main page HERE!
 
-            // login button --> login page ("/login")
-            $("#loginButton").on("click", function(event) {
-                event.preventDefault();
-                window.location.href="/login";
-            });
+    // login button --> login page ("/login")
+    $("#loginButton").on("click", function (event) {
+        event.preventDefault();
+        window.location.href = "/login";
+    });
 
-            // signup button --> signup page ("/signup")
-            $("#signupButton").on("click", function(event) {
-                event.preventDefault();
-                window.location.href="/signup";
-            });
+    // signup button --> signup page ("/signup")
+    $("#signupButton").on("click", function (event) {
+        event.preventDefault();
+        window.location.href = "/signup";
+    });
 </script>
