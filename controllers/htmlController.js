@@ -55,23 +55,11 @@ router.get("/player", isAuthenticated, function(req, res) {
   res.render("player", { user: req.user });
 });
 
- /**
+/**
  * Leaderboard page
  */
 router.get("/leaderboard", isAuthenticated, function(req, res) {
   res.render("leaderboard", { user: req.user });
-});
-
-/**
- * Forum Page -
- * Notice loading our posts, with that include!
- */
-router.get("/forum", isAuthenticated, function(req, res) {
-  db.Post.findAll({ raw: true, include: [db.User] }) // Joins User to Posts! And scrapes all the seqeulize stuff off
-    .then(dbModel => {
-      res.render("forum", { user: req.user, posts: dbModel });
-    })
-    .catch(err => res.status(422).json(err));
 });
 
 /**

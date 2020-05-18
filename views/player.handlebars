@@ -14,7 +14,7 @@
         <!-- page title -->
         <div class="column is-full">
             <h1 class="leaderboard-header">WELCOME<span id="usernameEntry" class="subheading-accent username-entry">
-                    *USERNAME*</span></h1>
+                    {{user.username}}</span></h1>
         </div>
         <!-- player's score & rank -->
         <div class="column is-full">
@@ -25,7 +25,7 @@
             <div id="userStats" class="columns is-centered is-mobile user-stats">
                 <div id="statScore" class="column stat-score">
                     <p class="stats-label">accuracy</p>
-                    <p id="userAccuracy" class="stat-user-number user-accuracy">??%</p>
+                    <p id="userAccuracy" class="stat-user-number user-accuracy">{{user.average_score}}%</p>
                 </div>
                 <div id="statRank" class="column stat-rank">
                     <p class="stats-label">rank</p>
