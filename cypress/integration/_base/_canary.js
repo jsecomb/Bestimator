@@ -11,6 +11,6 @@ describe('Canary Test', () => {
     it('loads the home page when navigated to', () => {
       cy.visit('')
   
-      cy.get('.container')
+      cy.get('section')
     })
   })

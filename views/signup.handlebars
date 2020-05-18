@@ -33,11 +33,10 @@
 <script>
   $(document).ready(function () {
     // Getting references to our form and inputs
-    //var signupForm = $("form.signup");
     var usernameInput = $("#usernameInput");
     var passwordInput = $("#passwordInput");
 
-    // When the form is submitted, we validate there's an email and password entered
+    // When the form is submitted, we validate there's a username and password entered
     $("#signupButton").on("click", function (event) {
       event.preventDefault();
       var userData = {
@@ -49,13 +48,13 @@
         return;
       }
 
-      // If we have an email and password we run the signUp function and clear the form
+      // If we have a username and password we run the signupUser function and clear the form
       signupUser(userData.username, userData.password);
       usernameInput.val("");
       passwordInput.val("");
     });
 
-    // signUp does a post to our "auth/login" route and if successful, redirects us the the members page
+    // signupUser does a post to our "auth/login" route and if successful, redirects us the the game page
     function signupUser(username, password) {
       $.post("/auth/signup", {
         username: username,
