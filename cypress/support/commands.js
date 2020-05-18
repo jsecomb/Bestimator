@@ -11,9 +11,9 @@
 
 Cypress.Commands.add("login", () => {
     cy.visit('/login');
-    cy.get("#email-input").type("test@test.com");
-    cy.get("#password-input").type("password");
-    cy.get("button[type='submit']").click();
+    cy.get("#usernameInput").type("username");
+    cy.get("#passwordInput").type("password");
+    cy.get("#loginButton").click();
 })
 
 Cypress.Commands.add("logout", () => {
