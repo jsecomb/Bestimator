@@ -5,6 +5,7 @@ html {
 section {
   text-align: center;
   background-color: #191919;
+  font-family: 'Balsamiq Sans', cursive;
 }
 .page-header-title-logo {
   margin-top: 30px;
@@ -77,9 +78,8 @@ section {
   padding: 10px;
   border-radius: 5px;
 }
-.game-page-image {
-  width: 80%;
-  border-radius: 5px;
+#questionImg {
+  width: 100%;
 }
 .question-response-column {
   margin-right: 0px;
@@ -272,6 +272,10 @@ section {
     width: 50%;
     margin-bottom: 5%;
   }
+  #questionImg {
+    width: 90%;
+    margin-left: 20px;
+  }
   .leaderboard-links {
     margin-left: 10px;
     margin-right: 10px;
@@ -314,6 +318,10 @@ section {
   }
   .question-response-column {
     margin-right: 30px;
+  }
+  #questionImg {
+    width: 72%;
+    margin-left: 20px;
   }
   .leaderboard-list-item,
   .score-list-item {
