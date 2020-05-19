@@ -13,6 +13,9 @@
                 <!-- question text -->
                 <div class="column question-response-column">
                     <div id="questionText" class="question-text"></div>
+                    <!-- user input validation message-->
+                    <div id="validationText" class="validation-text hide" style="color:red;">input a valid number</div>
+                    <!-- input field and button -->
                     <input id="userResponse" class="input user-response is-warning" type="text"
                         placeholder="your answer">
                     <button id="guessButton" class="guess-button button is-large" data-id="0">make a guess!</button>
@@ -72,15 +75,23 @@
             $("#guessButton").attr("data-id", questions[questionsIndex].id);
         };
 
-        $(document).on("click", "#guessButton", function() {
+        $(document).on("click", "#guessButton", function () {
             const questionId = $(this).attr("data-id");
             var answer = document.getElementById("userResponse").value;
-            var newAnswer = {
-                QuestionId: questionId,
-                user_response: answer
+            // validate user response for a non-negative number
+            if (isNaN(answer) || answer < 0) {
+                // make error message appear
+                $("#validationText").removeClass("hide");
+            } else {
+                var newAnswer = {
+                    QuestionId: questionId,
+                    user_response: answer
+                };
+                console.log(newAnswer);
+                postAnswer(newAnswer);
+                // remove error message
+                $("#validationText").addClass("hide");
             };
-            console.log(newAnswer);
-            postAnswer(newAnswer);
             $("#userResponse").val("");
         });
 
@@ -90,7 +101,7 @@
                 url: "/api/answers",
                 data: answer
             })
-                .then(function(response) {
+                .then(function (response) {
                     console.log(response);
                     dayScores.push(response.answer_score);
                     console.log("answer posted");
@@ -123,18 +134,5 @@
         startQuiz();
 
     });
-
-    // JAVASCRIPT FOR "/game" game page HERE!
-
-    /*// make modal appear when click on button
-    $("#guessButton").on("click", function (event) {
-        event.preventDefault();
-        $("#modalContainer").addClass("is-active");
-    });
-    // make modal disappear when click on button
-    $("#modalButton").on("click", function (event) {
-        event.preventDefault();
-        $("#modalContainer").removeClass("is-active");
-    });*/
 
 </script>
