@@ -2,6 +2,22 @@ const db = require("../../models");
 const router = require("express").Router();
 
 /**
+ * Answer - Read All scores where id is userID (for grading particular user)
+ */
+router.get("/averageScore/:id", function (req, res) {
+  db.Answer.findAll({
+    where: {
+      UserId: req.params.id
+    }
+  })
+    .then(dbModel => {
+      res.json(dbModel);
+    })
+    .catch(err => res.status(422).json(err));
+});
+
+
+/**
  * Answer - Read All
  */
 router.get("/", function (req, res) {

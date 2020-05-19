@@ -24,21 +24,47 @@
         </div>
         <!-- leaderboard items -->
         <ul id="leaderboardList" class="leaderboard-list">
-            <li class="leaderboard-list-item"><span class="player-info">rank | username | score</span></li>
+            <!--<li class="leaderboard-list-item"><span class="player-info">rank | username | score</span></li>-->
         </ul>
     </div>
 </section>
 <script>
-        // leaderboard "/leaderboard" script here
 
-        // button to go to player's profile page
-        $("#userProfile").on("click", function(event) {
-            event.preventDefault();
-            window.location.href="/player";
+    $(document).ready(function () {
+
+        $.get("/api/users/", function (data) {
+            let userIdList = data.map(user => user.id);
+            userIdList.forEach(user => getEachScore(user));
         });
-        //button to log out
-        $("#logoutButton").on("click", function(event) {
-            event.preventDefault();
-            window.location.href="/auth/logout";
-        });
+
+        function getEachScore(user) {
+            $.get("/api/answers/averageScore/" + user, function (data) {
+                let totalScore = 0;
+                data.forEach(score => (totalScore += score.answer_score));
+                let averageScore = totalScore / data.length;
+                renderScore(data[0].UserId, averageScore);
+            });
+        };
+
+        function renderScore(id, score) {
+            $.get("/api/users/" + id, function (data) {
+                let userName = data[0].username;
+                $(`<li>${userName} | ${Math.floor(score)}%</li>`).addClass("leaderboard-list-item").appendTo("#leaderboardList")
+            })
+        }
+
+    });
+
+    /*// leaderboard "/leaderboard" script here
+
+    // button to go to player's profile page
+    $("#userProfile").on("click", function (event) {
+        event.preventDefault();
+        window.location.href = "/player";
+    });
+    //button to log out
+    $("#logoutButton").on("click", function (event) {
+        event.preventDefault();
+        window.location.href = "/auth/logout";
+    });*/
 </script>
