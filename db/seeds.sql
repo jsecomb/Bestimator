@@ -1,4 +1,3 @@
--- for local database --
 INSERT INTO bestimator_local.Questions (description, question, unit, answer, image_url, createdAt, updatedAt) VALUES ("Toilet Paper", "How many sheets of toilet paper are left?", "quantity", 35, "https://i.imgur.com/j0RHYFz.jpg", "2020-05-14", "2020-05-14");
 INSERT INTO bestimator_local.Questions (description, question, unit, answer, image_url, createdAt, updatedAt) VALUES ("Cheerios", "How many Cheerios in the glass?", "quantity", 195, "https://i.imgur.com/XeoQPGQ.jpg", "2020-05-14", "2020-05-14");
 INSERT INTO bestimator_local.Questions (description, question, unit, answer, image_url, createdAt, updatedAt) VALUES ("Indoor Plant", "How many inches tall is the plant?", "inches", 75, "https://i.imgur.com/WxtFwm8.jpg", "2020-05-14", "2020-05-14");
