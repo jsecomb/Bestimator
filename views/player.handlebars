@@ -25,7 +25,7 @@
             <div id="userStats" class="columns is-centered is-mobile user-stats">
                 <div id="statScore" class="column stat-score">
                     <p class="stats-label">accuracy</p>
-                    <p id="userAccuracy" class="stat-user-number user-accuracy">{{user.average_score}}%</p>
+                    <p id="userAccuracy" class="stat-user-number user-accuracy"></p>
                 </div>
                 <div id="statRank" class="column stat-rank">
                     <p class="stats-label">rank</p>
@@ -48,6 +48,31 @@
     </div>
 </section>
 <script>
+
+    $(document).ready(function () {
+
+        $.get("/api/users/" + {{user.id}}, function (data) {
+            let userIdList = data.map(user => user.id);
+            userIdList.forEach(user => getEachScore(user));
+        });
+
+        function getEachScore(user) {
+            $.get("/api/answers/averageScore/" + user, function (data) {
+                let totalScore = 0;
+                data.forEach(score => (totalScore += score.answer_score));
+                let averageScore = totalScore / data.length;
+                renderScore(data[0].UserId, averageScore);
+            });
+        };
+
+        function renderScore(id, score) {
+            $.get("/api/users/" + id, function (data) {
+                $(`<p>${Math.floor(score)}%</p>`).addClass("stat-user-number user-accuracy").appendTo("#statScore");
+            });
+        };
+
+    });
+
     // button to go to player's profile page
         $("#leaderboardButton").on("click", function(event) {
             event.preventDefault();
