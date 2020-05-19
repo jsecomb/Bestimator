@@ -13,9 +13,11 @@
                 <!-- question text -->
                 <div class="column question-response-column">
                     <div id="questionText" class="question-text"></div>
-                    <input id="userResponse" class="input user-response is-warning" type="text"
-                        placeholder="your answer">
-                    <button id="guessButton" class="guess-button button is-large" data-id="0">make a guess!</button>
+                    <form id="guessForm">
+                        <input id="userResponse" class="input user-response is-warning" type="text"
+                            placeholder="your answer">
+                        <button id="guessButton" class="guess-button button is-large" data-id="0">make a guess!</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -40,7 +42,7 @@
 
 <script>
 
-    $(document).ready(function() {
+    $(document).ready(function () {
 
         var questionText = document.createElement("p");
         var questionImg = document.createElement("img");
@@ -57,7 +59,7 @@
         };
 
         function getQuestions() {
-            $.get("/api/questions/", function(data) {
+            $.get("/api/questions/", function (data) {
                 questions = data;
                 showQuestion();
             });
@@ -72,7 +74,7 @@
             $("#guessButton").attr("data-id", questions[questionsIndex].id);
         };
 
-        $(document).on("click", "#guessButton", function() {
+        $(document).on("click", "#guessButton", function () {
             const questionId = $(this).attr("data-id");
             var answer = document.getElementById("userResponse").value;
             var newAnswer = {
@@ -81,7 +83,12 @@
             };
             console.log(newAnswer);
             postAnswer(newAnswer);
+            resetGuessForm();
         });
+
+        function resetGuessForm() {
+            document.getElementById("guessForm").reset();
+        }
 
         function postAnswer(answer) {
             $.ajax({
@@ -89,7 +96,7 @@
                 url: "/api/answers",
                 data: answer
             })
-                .then(function(response) {
+                .then(function (response) {
                     console.log(response);
                     dayScores.push(response.answer_score);
                     console.log("answer posted");
