@@ -39,16 +39,15 @@ router.get("/:id", function (req, res) {
  * Answer - Create
  * Notice how we are also taking in the User Id! Important!
  */
-router.post("/", async function (req, res) {
+router.post("/", async function(req, res) {
   var correctAnswer = await db.Question.findByPk(req.body.QuestionId).get("answer");
   var denominator;
-    if (req.body.user_response > correctAnswer) {
-      denominator = req.body.user_response;
-    }
-    else {
-      denominator = correctAnswer;
-    }
-  var score = 100*(1 - (Math.abs(req.body.user_response - correctAnswer))/denominator);
+  if (req.body.user_response > correctAnswer) {
+    denominator = req.body.user_response;
+  } else {
+    denominator = correctAnswer;
+  }
+  var score = 100 * (1 - (Math.abs(req.body.user_response - correctAnswer)) / denominator);
   console.log(score);
   db.Answer.create({
     UserId: req.user.id,
