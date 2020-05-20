@@ -16,6 +16,15 @@ router.get("/averageScore/:id", function (req, res) {
     .catch(err => res.status(422).json(err));
 });
 
+/**
+ * Answer - Find by ID
+ */
+router.get("/currentUser", function (req, res) {
+  console.log("userId", req.user.id);
+  db.Answer.findAll({ where: {UserId: req.user.id }})
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
+});
 
 /**
  * Answer - Read All
@@ -64,7 +73,7 @@ router.get("/:id", function (req, res) {
  * Answer - Create
  * Notice how we are also taking in the User Id! Important!
  */
-router.post("/", async function(req, res) {
+router.post("/", async function (req, res) {
   var correctAnswer = await db.Question.findByPk(req.body.QuestionId).get("answer");
   var denominator;
   if (req.body.user_response > correctAnswer) {
