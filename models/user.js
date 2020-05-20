@@ -56,5 +56,12 @@ module.exports = function(sequelize, DataTypes) {
     );
   });
 
+  User.associate = function(models) {
+    // We're saying that a Answer should belong to a User
+    // An Answer can't be created without a User due to the foreign key constraint
+    User.hasMany(models.Answer, {
+    });
+  };
+
   return User;
 };

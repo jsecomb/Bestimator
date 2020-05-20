@@ -26,11 +26,36 @@ router.get("/", function (req, res) {
     .catch(err => res.status(422).json(err));
 });
 
+
+
+//Route to get average scores for each user.
+router.get("/playerScore", function (req, res) {
+  console.log("please")
+  db.User.findAll({include: [db.Answer]})
+
+    .then(usersWithAnswers => {
+      const leaderboard = usersWithAnswers.map(User => {
+        let totalScore = 0;
+        User.Answers.forEach(answer => {
+          totalScore += answer.answer_score;
+        });
+        return {username: User.username, averageScore: totalScore / User.Answers.length};
+      });
+      const sortedLeadeboard = leaderboard.sort(
+        (a, b) => b.averageScore - a.averageScore
+      );
+      console.log(sortedLeadeboard);
+      res.json(sortedLeadeboard);
+    })
+    .catch(err => res.status(422).json(err));
+});
+
 /**
  * Answer - Read One
  */
+
 router.get("/:id", function (req, res) {
-  db.Answer.findById(req.params.id)
+  db.Answer.findByPk(req.params.id)
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
 });
@@ -57,5 +82,8 @@ router.post("/", async function(req, res) {
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
 });
+
+
+
 
 module.exports = router;

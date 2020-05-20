@@ -65,8 +65,8 @@ router.get("/leaderboard", isAuthenticated, function(req, res) {
 /**
  * Generic Error Page
  */
-// router.get("*", function(req, res) {
-//   res.render("errors/404", { user: req.user });
-// });
+router.get("*", function(req, res) {
+res.render("errors/404", { user: req.user });
+});
 
 module.exports = router;
