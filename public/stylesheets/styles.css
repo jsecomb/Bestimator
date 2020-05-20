@@ -139,8 +139,7 @@ section {
 }
 .leaderboard-links,
 .player-page-links {
-  margin-top: 30px;
-  margin-left: 0px;
+  margin: 30px 0px 0px 10px;
 }
 .leaderboard-button {
   background-color: #ffd700;
@@ -152,13 +151,20 @@ section {
   background-color: #7f6b00;
   color: #f9f9f9;
 }
-.leaderboard-header {
-  color: #f9f9f9;
-  font-size: 25px;
+.leaderboard-header, .player-score-display {
+  color: #b29600;
+  font-size: 30px;
+  background-color: #efede0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.player-page-header {
+  color: white;
+  font-size: 40px;
 }
 .leaderboard-list-item,
 .score-list-item {
-  background-color: #7f6b00;
+  background-color: #3f3500;
   color: #f9f9f9;
   font-size: 20px;
   margin-left: 50px;
@@ -167,6 +173,13 @@ section {
   padding-top: 30px;
   padding-bottom: 30px;
   border-radius: 5px;
+}
+.board-item {
+  background-color: #fff7cc;
+  border-radius: 10px;
+  padding: 5px 10px 5px 10px;
+  color: #7f6b00;
+  font-weight: bold;
 }
 .player-heading {
   color: #f9f9f9;
@@ -294,8 +307,8 @@ section {
   .leaderboard-list-item,
   .score-list-item {
     font-size: 24px;
-    padding-left: 250px;
-    padding-right: 250px;
+    padding-left: 150px;
+    padding-right: 150px;
   }
 }
 
