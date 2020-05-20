@@ -13,7 +13,7 @@
         </div>
         <!-- page title -->
         <div class="column is-full">
-            <h1 class="leaderboard-header">WELCOME<span id="usernameEntry" class="subheading-accent username-entry">
+            <h1 class="player-page-header">WELCOME<span id="usernameEntry" class="subheading-accent username-entry">
                     {{user.username}}</span></h1>
         </div>
         <!-- player's score & rank -->
@@ -29,7 +29,7 @@
                 </div>
                 <div id="statRank" class="column stat-rank">
                     <p class="stats-label">rank</p>
-                    <p id="userRank" class="stat-user-number user-rank">#?</p>
+                    <p id="userRank" class="stat-user-number user-rank"></p>
                 </div>
             </div>
         </div>
@@ -39,11 +39,11 @@
         </div>
         <!-- player's scores-->
         <div class="column is-full">
-            <h4 class="player-heading">your scores:</h4>
+            <h4 class="player-score-display"><i class="fas fa-star"></i> your scores <i class="fas fa-star"></i></h4>
         </div>
         <!-- user scores items -->
         <ul id="userScores" class="userScores">
-            <li class="score-list-item"><span class="player-info">date | score</span></li>
+            <li class="score-list-item"><span class="player-info"><span class="board-item">date</span> | <span class="board-item">score</span></li>
         </ul>
     </div>
 </section>

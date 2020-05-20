@@ -20,11 +20,11 @@
         </div>
         <!-- page title -->
         <div class="column is-full">
-            <h1 class="leaderboard-header">leaderboard</h1>
+            <h1 class="leaderboard-header"><i class="fas fa-star"></i> leaderboard <i class="fas fa-star"></i></h1>
         </div>
         <!-- leaderboard items -->
         <ul id="leaderboardList" class="leaderboard-list">
-            <!--<li class="leaderboard-list-item"><span class="player-info">rank | username | score</span></li>-->
+            <!-- leaderboard scores here (rank | username | score) -->
         </ul>
     </div>
 </section>
@@ -38,7 +38,7 @@
             
             let rank = 1;
             data.forEach(user => {
-                $(`<li> Rank: ${rank} | User: ${user.username} | Score: ${Math.floor(user.averageScore)}%</li>`).addClass("leaderboard-list-item").appendTo("#leaderboardList")
+                $(`<li><span class="board-item">#${rank}</span> | <span class="board-item">${user.username}</span> | <span class="board-item">${Math.floor(user.averageScore)}%</span></li>`).addClass("leaderboard-list-item").appendTo("#leaderboardList")
                 rank++;
             })
         });

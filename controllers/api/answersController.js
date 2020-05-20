@@ -21,7 +21,7 @@ router.get("/averageScore/:id", function (req, res) {
  */
 router.get("/currentUser", function (req, res) {
   console.log("userId", req.user.id);
-  db.Answer.findAll({ where: {UserId: req.user.id }})
+  db.Answer.findAll({ where: { UserId: req.user.id } })
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
 });
@@ -36,11 +36,10 @@ router.get("/", function (req, res) {
 });
 
 
-
 //Route to get average scores for each user.
 router.get("/playerScore", function (req, res) {
   console.log("please")
-  db.User.findAll({include: [db.Answer]})
+  db.User.findAll({ include: [db.Answer] })
 
     .then(usersWithAnswers => {
       const leaderboard = usersWithAnswers.map(User => {
@@ -48,7 +47,7 @@ router.get("/playerScore", function (req, res) {
         User.Answers.forEach(answer => {
           totalScore += answer.answer_score;
         });
-        return {username: User.username, averageScore: totalScore / User.Answers.length};
+        return { username: User.username, averageScore: totalScore / User.Answers.length };
       });
       const sortedLeadeboard = leaderboard.sort(
         (a, b) => b.averageScore - a.averageScore
@@ -91,8 +90,5 @@ router.post("/", async function (req, res) {
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
 });
-
-
-
 
 module.exports = router;
