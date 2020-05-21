@@ -26,15 +26,13 @@ section {
 .page-title-best {
   background-color: #f9f9f9;
   font-weight: bold;
-  padding: 10px;
-  padding-right: 2px;
+  padding: 10px 2px 5px 15px;
   border-radius: 5px 0 0 5px;
 }
 .page-title-imator {
   background-color: #ffd700;
   color: #f9f9f9;
-  padding: 10px;
-  padding-left: 2px;
+  padding: 10px 15px 5px 2px;
   border-radius: 0 5px 5px 0;
 }
 .main-page-subheading {
@@ -118,6 +116,10 @@ section {
   margin-bottom: 5%;
   border-radius: 10px;
 }
+.signup-username-requirements {
+  font-size: 15px;
+  color: gray;
+}
 #link-main-page {
   margin-top: 10%;
 }
@@ -178,11 +180,9 @@ section {
   background-color: #9f7928;
   color: #f9f9f9;
   font-size: 20px;
-  margin-left: 50px;
-  margin-right: 50px;
-  margin-bottom: 30px;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  margin: 0px 50px 20px 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   border-radius: 5px;
 }
 #leaderboardButton {
@@ -198,6 +198,7 @@ section {
   padding: 5px 10px 5px 10px;
   color: #7f6b00;
   font-weight: bold;
+  font-size: 15px;
 }
 .player-heading {
   color: #f9f9f9;
@@ -318,6 +319,9 @@ button:hover {
   .user-accuracy {
     font-size: 35px;
   }
+  .board-item {
+    font-size: 20px;
+  }
 }
 
 /* SCREEN SIZE md (768px - 991px) */
@@ -419,5 +423,8 @@ button:hover {
   }
   #forms {
     width: 30%;
+  }
+  .board-item {
+    font-size: 25px;
   }
 }
