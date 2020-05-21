@@ -43,7 +43,8 @@
         </div>
         <!-- user scores items -->
         <ul id="userScores" class="userScores">
-            <li class="score-list-item"><span class="player-info"><span class="board-item">date</span> | <span class="board-item">score</span></li>
+            <li class="score-list-item"><span class="player-info"><span class="board-item">date</span> | <span
+                        class="board-item">score</span></li>
         </ul>
     </div>
 </section>
@@ -53,16 +54,26 @@
 
         $.get("/api/answers/playerScore", function (data) {
             const scores = data;
-            userID = ({{user.id}})
-
-            $("#userAccuracy").text(`${(Math.floor(data[userID].averageScore))}%`)
-            $("#userRank").text(data[userID].rank)
+            data.forEach(user => {
+                if ("{{user.username}}" === user.username) {
+                    $("#userAccuracy").text(`${(Math.floor(user.averageScore))}%`);
+                    $("#userRank").text("#" + user.rank);
+                };
+            })
         });
 
         $.get("/api/answers/fiveDayAnswers", function (data) {
             console.log(data);
         });
 
+    });
+
+    // ============================================================================================
+
+    // click event for PLAY button
+    $("#playButton").on("click", function (event) {
+        event.preventDefault();
+        window.location.href = "/game";
     });
 
     // button to go to player's profile page
