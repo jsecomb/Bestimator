@@ -47,11 +47,31 @@
                         class="board-item">score</span></li>
         </ul>
     </div>
+
+    <!-- MODAL telling user that they are done playing until the next day -->
+    <div id="modalContainer" class="modal is-centered">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="content">
+                        <p id="modal-text" class="modal-text">You have already answered 5 questions today. Please come
+                            back again tomorrow.</p>
+                        <button id="modalButton" class="button is-warning is-large">OK</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 </section>
 <script>
 
     $(document).ready(function () {
 
+        // DISPLAY THE USER'S STATS (RANK & OVERALL ACCURACY)
         $.get("/api/answers/playerScore", function (data) {
             const scores = data;
             data.forEach(user => {
@@ -62,19 +82,35 @@
             })
         });
 
+        // DISPLAY EACH OF USER'S DAILY SCORES
         $.get("/api/answers/fiveDayAnswers", function (data) {
             console.log(data);
+        });
+
+        // PREVENT USER FROM GOING TO GAME PAGE IF THEY HAVE ALREADY PLAYED TODAY
+        $.get("/api/questions", function (data) {
+            // click event for PLAY button
+            $("#playButton").on("click", function (event) {
+                event.preventDefault();
+
+                if (data.length === 0) {
+                    // modal telling user there are no more questions
+                    $("#modalContainer").addClass("is-active");
+                    $("#modalButton").on("click", function (event) {
+                        event.preventDefault();
+                        $("#modalContainer").removeClass("is-active");
+                    });
+                } else {
+                    // go to game page
+                    window.location.href = "/game";
+                };
+                
+            });
         });
 
     });
 
     // ============================================================================================
-
-    // click event for PLAY button
-    $("#playButton").on("click", function (event) {
-        event.preventDefault();
-        window.location.href = "/game";
-    });
 
     // button to go to player's profile page
     $("#leaderboardButton").on("click", function (event) {
