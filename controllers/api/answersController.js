@@ -1,5 +1,6 @@
 const db = require("../../models");
 const router = require("express").Router();
+const Op = require("sequelize").Op;
 
 /**
  * Answer - Read All scores where id is userID (for grading particular user)
@@ -35,24 +36,59 @@ router.get("/", function (req, res) {
     .catch(err => res.status(422).json(err));
 });
 
+router.get("/fiveDayAnswers", function (req, res) {
+  var today = new Date();
+  var tomorrow = new Date();
+  tomorrow.setDate(today.getDate() + 1, 0, 0);
+  var fourDaysAgo = new Date();
+  fourDaysAgo.setDate(today.getDate() - 4, 0, 0);
+  db.Answer.findAll({
+    where:
+    {
+      UserId: req.user.id,
+      createdAt: {
+        [Op.between]: [fourDaysAgo, tomorrow]
+      }
+    }
+  })
+  .then(scores => {
+    let answerScores = scores.map(answer => answer.answer_score);
+    let total = 0;
+    answerScores.forEach(score => total += score);
+    let averageScore = total/answerScores.length;
+    res.json(averageScore);
+  })
+  .catch(err => res.status(422).json(err));
+});
+
 
 //Route to get average scores for each user.
 router.get("/playerScore", function (req, res) {
-  console.log("please")
   db.User.findAll({ include: [db.Answer] })
 
     .then(usersWithAnswers => {
-      const leaderboard = usersWithAnswers.map(User => {
+      const filteredUsers = usersWithAnswers.filter(User => User.Answers !== null);
+      console.log(filteredUsers);
+      const leaderboard = filteredUsers.map(User => {
         let totalScore = 0;
         User.Answers.forEach(answer => {
           totalScore += answer.answer_score;
         });
-        return { username: User.username, averageScore: totalScore / User.Answers.length };
+        switch (User.Answers.length) {
+          case 0:
+            return { username: User.username, averageScore: totalScore / 1, rank: 1 };
+          default:
+            return { username: User.username, averageScore: totalScore / User.Answers.length, rank: 1 };
+        }
       });
       const sortedLeadeboard = leaderboard.sort(
         (a, b) => b.averageScore - a.averageScore
       );
-      console.log(sortedLeadeboard);
+      let rankNum = 1;
+      sortedLeadeboard.forEach(user => {
+        user.rank = rankNum;
+        rankNum++;
+      });
       res.json(sortedLeadeboard);
     })
     .catch(err => res.status(422).json(err));

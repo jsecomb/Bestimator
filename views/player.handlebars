@@ -51,32 +51,18 @@
 
     $(document).ready(function () {
 
-        $.get("/api/users/" + {{ user.id }}, function (data) {
-            let userIdList = data.map(user => user.id);
-            userIdList.forEach(user => getEachScore(user));
+        $.get("/api/answers/playerScore", function (data) {
+            const scores = data;
+            userID = ({{user.id}})
+
+            $("#userAccuracy").text(`${(Math.floor(data[userID].averageScore))}%`)
+            $("#userRank").text(data[userID].rank)
         });
 
-    function getEachScore(user) {
-        $.get("/api/answers/averageScore/" + user, function (data) {
-            let totalScore = 0;
-            data.forEach(score => (totalScore += score.answer_score));
-            let averageScore = totalScore / data.length;
-            renderScore(data[0].UserId, averageScore);
+        $.get("/api/answers/fiveDayAnswers", function (data) {
+            console.log(data);
         });
-    };
 
-    function renderScore(id, score) {
-        $.get("/api/users/" + id, function (data) {
-            $(`<p>${Math.floor(score)}%</p>`).addClass("stat-user-number user-accuracy").appendTo("#statScore");
-        });
-    };
-
-    });
-
-    // play button functionality
-    $("#playButton").on("click", function (event) {
-        event.preventDefault();
-        window.location.href = "/game";
     });
 
     // button to go to player's profile page
