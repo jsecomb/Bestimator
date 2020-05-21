@@ -6,6 +6,7 @@ section {
   text-align: center;
   background-color: #191919;
   font-family: "Balsamiq Sans", cursive;
+  
 }
 .hide {
   display: none;
@@ -48,6 +49,7 @@ section {
 .main-image {
   width: 80%;
   border-radius: 5px;
+  border: 5px solid gold;
 }
 .game-explanation {
   font-size: 18px;
@@ -114,6 +116,7 @@ section {
 #signupButton {
   width: 75%;
   margin-bottom: 5%;
+  border-radius: 10px;
 }
 #link-main-page {
   margin-top: 10%;
@@ -145,6 +148,7 @@ section {
   background-color: #ffd700;
   color: #191919;
   font-weight: bold;
+  border-radius: 10px;
 }
 .leaderboard-button:hover {
   cursor: pointer;
@@ -157,22 +161,36 @@ section {
   background-color: #efede0;
   padding-top: 10px;
   padding-bottom: 10px;
+  border-top: 2px solid rgb(126, 126, 233);
+  border-bottom: 2px solid rgb(126, 126, 233);
+  margin-bottom: 10px;
 }
 .player-page-header {
   color: white;
   font-size: 40px;
 }
+.leaderboard-gold {
+  background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+              radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+}
 .leaderboard-list-item,
 .score-list-item {
-  background-color: #3f3500;
+  background-color: #9f7928;
   color: #f9f9f9;
   font-size: 20px;
   margin-left: 50px;
   margin-right: 50px;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
   padding-top: 30px;
   padding-bottom: 30px;
   border-radius: 5px;
+}
+#leaderBoardButton {
+  margin-left: -7%;
+}
+#logoutButton {
+  margin-left: -2%;
+  border-radius: 10px;
 }
 .board-item {
   background-color: #fff7cc;
@@ -184,6 +202,7 @@ section {
 .player-heading {
   color: #f9f9f9;
   font-size: 25px;
+  margin-bottom: 20px;
 }
 .play-button {
   background-color: #ffd700;
@@ -191,6 +210,8 @@ section {
   font-weight: bold;
   width: 80%;
   margin-top: 30px;
+  margin-bottom: 30px;
+  border-radius: 10px;
 }
 .play-button:hover {
   cursor: pointer;
@@ -200,10 +221,11 @@ section {
 .stat-score,
 .stat-rank {
   background-color: #fff7cc;
-  color: #7f6b00;
+  color: black;
   font-size: 20px;
   margin-left: 20px;
-  margin-right: 20px;
+  margin-right: 15px;
+  border-radius: 5px;
 }
 .stats-label {
   font-weight: bold;
@@ -211,6 +233,37 @@ section {
 .user-rank,
 .user-accuracy {
   font-size: 30px;
+}
+#userStats {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+#userScores {
+  margin-bottom: 10px;
+}
+#statScore, #statRank {
+  background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+              radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+}
+.username-entry {
+    color:  rgb(110, 107, 170);
+    text-align: center;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+button:hover {
+  border: solid 2px rgb(133, 133, 221);
+}
+
+@-webkit-keyframes glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px  rgb(140, 138, 216), 0 0 40px  rgb(140, 138, 216), 0 0 50px  rgb(140, 138, 216), 0 0 60px  rgb(140, 138, 216), 0 0 70px  rgb(140, 138, 216);
+    }
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px  rgb(140, 138, 216), 0 0 40px  rgb(140, 138, 216), 0 0 50px  rgb(140, 138, 216), 0 0 60px  rgb(140, 138, 216), 0 0 70px  rgb(140, 138, 216), 0 0 80px  rgb(140, 138, 216);
+    }
+}
 }
 
 /* MEDIA QUERIES ========================================================== */
@@ -299,7 +352,7 @@ section {
     margin-right: 10px;
   }
   .leaderboard-button {
-    width: 75%;
+    width: 45%;
   }
   .leaderboard-header {
     font-size: 30px;
@@ -332,7 +385,7 @@ section {
     padding-right: 30px;
   }
   .main-page-buttons {
-    width: 90%;
+    width: 30%;
   }
   .question-response-column {
     margin-right: 30px;
@@ -351,5 +404,20 @@ section {
   .stat-rank {
     margin-left: 60px;
     margin-right: 60px;
+  }
+  #player-container {
+    width: 92%;
+    height: auto;
+    border: solid gold 2px;
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: 4%;
+    margin-bottom: 4%;
+  }
+  .leaderboard-button {
+    width: 33.3%;
+  }
+  #forms {
+    width: 30%;
   }
 }

@@ -20,7 +20,6 @@ router.get("/", function (req, res) {
       }
     }
   }).then(answers => {
-    console.log("answers", answers);
     db.Question.findAll({
       limit: 5 - answers.length,
       order: db.sequelize.random()
@@ -28,9 +27,6 @@ router.get("/", function (req, res) {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   });
-
-
-
 });
 
 /**
