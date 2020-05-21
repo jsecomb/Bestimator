@@ -38,7 +38,7 @@
             
             let rank = 1;
             data.forEach(user => {
-                $(`<li><span class="board-item">#${rank}</span> | <span class="board-item">${user.username}</span> | <span class="board-item">${Math.floor(user.averageScore)}%</span></li>`).addClass("leaderboard-list-item").appendTo("#leaderboardList")
+                $(`<li><span class="board-item">#${rank}</span> | <span class="board-item">${user.username}</span> | <span class="board-item">${Math.floor(user.averageScore)}%</span></li>`).addClass("leaderboard-list-item leaderboard-gold").appendTo("#leaderboardList")
                 rank++;
             })
         });
