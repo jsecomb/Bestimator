@@ -6,7 +6,6 @@ section {
   text-align: center;
   background-color: #191919;
   font-family: "Balsamiq Sans", cursive;
-  
 }
 .hide {
   display: none;
@@ -26,15 +25,13 @@ section {
 .page-title-best {
   background-color: #f9f9f9;
   font-weight: bold;
-  padding: 10px;
-  padding-right: 2px;
+  padding: 10px 2px 5px 15px;
   border-radius: 5px 0 0 5px;
 }
 .page-title-imator {
   background-color: #ffd700;
   color: #f9f9f9;
-  padding: 10px;
-  padding-left: 2px;
+  padding: 10px 15px 5px 2px;
   border-radius: 0 5px 5px 0;
 }
 .main-page-subheading {
@@ -49,7 +46,8 @@ section {
 .main-image {
   width: 80%;
   border-radius: 5px;
-  border: 5px solid gold;
+  margin-bottom: 20px;
+  border: 2px solid gold;
 }
 .game-explanation {
   font-size: 18px;
@@ -118,6 +116,10 @@ section {
   margin-bottom: 5%;
   border-radius: 10px;
 }
+.signup-username-requirements {
+  font-size: 15px;
+  color: gray;
+}
 #link-main-page {
   margin-top: 10%;
 }
@@ -155,7 +157,8 @@ section {
   background-color: #7f6b00;
   color: #f9f9f9;
 }
-.leaderboard-header, .player-score-display {
+.leaderboard-header,
+.player-score-display {
   color: #b29600;
   font-size: 30px;
   background-color: #efede0;
@@ -170,19 +173,31 @@ section {
   font-size: 40px;
 }
 .leaderboard-gold {
-  background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
-              radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+  background: radial-gradient(
+      ellipse farthest-corner at right bottom,
+      #fedb37 0%,
+      #fdb931 8%,
+      #9f7928 30%,
+      #8a6e2f 40%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse farthest-corner at left top,
+      #ffffff 0%,
+      #ffffac 8%,
+      #d1b464 25%,
+      #5d4a1f 62.5%,
+      #5d4a1f 100%
+    );
 }
 .leaderboard-list-item,
 .score-list-item {
   background-color: #9f7928;
   color: #f9f9f9;
   font-size: 20px;
-  margin-left: 50px;
-  margin-right: 50px;
-  margin-bottom: 30px;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  margin: 0px 50px 20px 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   border-radius: 5px;
 }
 #leaderboardButton {
@@ -198,6 +213,7 @@ section {
   padding: 5px 10px 5px 10px;
   color: #7f6b00;
   font-weight: bold;
+  font-size: 15px;
 }
 .player-heading {
   color: #f9f9f9;
@@ -241,30 +257,49 @@ section {
 #userScores {
   margin-bottom: 10px;
 }
-#statScore, #statRank {
-  background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
-              radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+#statScore,
+#statRank {
+  background: radial-gradient(
+      ellipse farthest-corner at right bottom,
+      #fedb37 0%,
+      #fdb931 8%,
+      #9f7928 30%,
+      #8a6e2f 40%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse farthest-corner at left top,
+      #ffffff 0%,
+      #ffffac 8%,
+      #d1b464 25%,
+      #5d4a1f 62.5%,
+      #5d4a1f 100%
+    );
 }
 .username-entry {
-    color:  rgb(110, 107, 170);
-    text-align: center;
-    -webkit-animation: glow 1s ease-in-out infinite alternate;
-    -moz-animation: glow 1s ease-in-out infinite alternate;
-    animation: glow 1s ease-in-out infinite alternate;
+  color: rgb(110, 107, 170);
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
 }
 button:hover {
   border: solid 2px rgb(133, 133, 221);
 }
 
 @-webkit-keyframes glow {
-    from {
-        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px  rgb(140, 138, 216), 0 0 40px  rgb(140, 138, 216), 0 0 50px  rgb(140, 138, 216), 0 0 60px  rgb(140, 138, 216), 0 0 70px  rgb(140, 138, 216);
-    }
-    to {
-        text-shadow: 0 0 20px #fff, 0 0 30px  rgb(140, 138, 216), 0 0 40px  rgb(140, 138, 216), 0 0 50px  rgb(140, 138, 216), 0 0 60px  rgb(140, 138, 216), 0 0 70px  rgb(140, 138, 216), 0 0 80px  rgb(140, 138, 216);
-    }
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px rgb(140, 138, 216),
+      0 0 40px rgb(140, 138, 216), 0 0 50px rgb(140, 138, 216),
+      0 0 60px rgb(140, 138, 216), 0 0 70px rgb(140, 138, 216);
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px rgb(140, 138, 216),
+      0 0 40px rgb(140, 138, 216), 0 0 50px rgb(140, 138, 216),
+      0 0 60px rgb(140, 138, 216), 0 0 70px rgb(140, 138, 216),
+      0 0 80px rgb(140, 138, 216);
+  }
 }
-
 
 /* MEDIA QUERIES ========================================================== */
 
@@ -318,6 +353,9 @@ button:hover {
   .user-accuracy {
     font-size: 35px;
   }
+  .board-item {
+    font-size: 20px;
+  }
 }
 
 /* SCREEN SIZE md (768px - 991px) */
@@ -367,6 +405,17 @@ button:hover {
 
 /* SCREEN SIZE lg (992px and up) */
 @media (min-width: 992px) {
+  html {
+    background-color: gray;
+  }
+  section {
+    background-color: #191919;
+    width: 90%;
+    height: auto;
+    border: solid gold 5px;
+    border-radius: 5px;
+    margin: 2.5% 5% 1% 5%;
+  }
   .page-header-title-logo,
   .app-logo {
     font-size: 80px;
@@ -380,7 +429,7 @@ button:hover {
     width: 63%;
   }
   .game-explanation {
-    font-size: 27px;
+    font-size: 25px;
     padding-left: 30px;
     padding-right: 30px;
   }
@@ -405,19 +454,13 @@ button:hover {
     margin-left: 60px;
     margin-right: 60px;
   }
-  #player-container {
-    width: 92%;
-    height: auto;
-    border: solid gold 2px;
-    margin-left: 4%;
-    margin-right: 4%;
-    margin-top: 4%;
-    margin-bottom: 4%;
-  }
   .leaderboard-button {
     width: 33.3%;
   }
   #forms {
     width: 30%;
+  }
+  .board-item {
+    font-size: 25px;
   }
 }
