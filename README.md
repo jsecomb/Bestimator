@@ -1,4 +1,4 @@
-# Weather Dashboard
+# The BESTimator
   ![GitHub repo size](https://img.shields.io/github/repo-size/Linus41/Bestimator?style=for-the-badge) ![GitHub code size](https://img.shields.io/github/languages/code-size/Linus41/Bestimator?color=gold&style=for-the-badge) ![GitHub language count](https://img.shields.io/github/languages/count/Linus41/Bestimator?color=green&style=for-the-badge) ![GitHub top language](https://img.shields.io/github/languages/top/Linus41/Bestimator?color=red&style=for-the-badge)
 
 ---
@@ -82,4 +82,4 @@ The cypress tests can be viewed by cloning this repository to your local machine
 * signup page: notify user if their username is already being used by someone else
 * login page: notify user if their username/password are either incorrect or do not exist
 * allow users to update/delete their account
-* prevent user from being able to access the game page if they have already played that day
+* add keyup events to several pages so that user can hit 'enter' key to submit info/guess/etc
