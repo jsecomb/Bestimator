@@ -39,18 +39,26 @@ router.get("/", function (req, res) {
 router.get("/fiveDayAnswers", function (req, res) {
   //create dates for to define day ranges for scores we want to gather. This code is NOT dry, but it works!
   var today = new Date();
+  today.setDate(today.getDate());
+  today.setHours(0,0,0,0);
   var tomorrow = new Date();
   tomorrow.setDate(today.getDate() + 1, 0, 0);
+  tomorrow.setHours(0,0,0,0);
   var yesterday = new Date();
   yesterday.setDate(today.getDate() - 1, 0, 0);
+  yesterday.setHours(0,0,0,0);
   var twoDaysAgo = new Date();
   twoDaysAgo.setDate(today.getDate() - 2, 0, 0);
+  twoDaysAgo.setHours(0,0,0,0);
   var threeDaysAgo = new Date();
   threeDaysAgo.setDate(today.getDate() - 3, 0, 0);
+  threeDaysAgo.setHours(0,0,0,0);
   var fourDaysAgo = new Date();
   fourDaysAgo.setDate(today.getDate() - 4, 0, 0);
+  fourDaysAgo.setHours(0,0,0,0);
   var fiveDaysAgo = new Date();
   fiveDaysAgo.setDate(today.getDate() - 5, 0, 0);
+  fiveDaysAgo.setHours(0,0,0,0);
   //get all answers from four days ago to (and including) today
   db.Answer.findAll({
     where:
@@ -78,11 +86,11 @@ router.get("/fiveDayAnswers", function (req, res) {
         }
       }
       //call getDayAverage on the past 5 days
-      getDayAverage(yesterday, tomorrow);
-      getDayAverage(twoDaysAgo, today);
-      getDayAverage(threeDaysAgo, yesterday);
-      getDayAverage(fourDaysAgo, twoDaysAgo);
-      getDayAverage(fiveDaysAgo, threeDaysAgo);
+      getDayAverage(today, tomorrow);
+      getDayAverage(yesterday, today);
+      getDayAverage(twoDaysAgo, yesterday);
+      getDayAverage(threeDaysAgo, twoDaysAgo);
+      getDayAverage(fourDaysAgo, threeDaysAgo);
       res.json(fiveDayAnswers);
     })
     .catch(err => res.status(422).json(err));
