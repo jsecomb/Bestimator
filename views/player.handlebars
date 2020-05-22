@@ -96,8 +96,8 @@
             let line = 1;
             data.forEach(day => {
 
-                $(`#${line}date`).text(`Day: ${day.date.substring(0,10)}`);
-                $(`#${line}score`).text(`Score: ${Math.floor(day.score)}`);
+                $(`#${line}date`).text(`date: ${day.date.substring(5,10)}`);
+                $(`#${line}score`).text(`${Math.floor(day.score)}%`);
                 //if statement to prevent days without scores from being shown)
                 if (day.score === "no score") {
                     $(`#${line}`).css("display", "none");

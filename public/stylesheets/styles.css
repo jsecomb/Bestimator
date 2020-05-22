@@ -47,7 +47,7 @@ section {
   width: 80%;
   border-radius: 5px;
   margin-bottom: 20px;
-  border: 2px solid gold;
+  border: 2px solid #b1b1db;
 }
 .game-explanation {
   font-size: 18px;
@@ -59,25 +59,39 @@ section {
   color: #ffd700;
 }
 .main-page-buttons {
-  background-color: #ffd700;
+  background: radial-gradient(
+      ellipse farthest-corner at right bottom,
+      #8e8e9f 0%,
+      #7e7e98 8%,
+      #6c6c74 30%,
+      #565663 40%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse farthest-corner at left top,
+      #ddddec 0%,
+      #cdcde3 8%,
+      #adadc3 25%,
+      #888892 62.5%,
+      #6c6c74 100%
+    );
   width: 80%;
   color: #191919;
   font-weight: bold;
 }
 .main-page-buttons:hover {
   cursor: pointer;
-  background-color: #7f6b00;
   color: #f9f9f9;
 }
 .question-counter {
   margin-top: 30px;
   font-size: 38px;
-  color: #ffd700;
+  color: #cbcbd9
 }
 .current-count {
   color: #f9f9f9;
   font-weight: bold;
-  background-color: #ffd700;
+  background-color: #7d7da1;
   padding: 10px;
   border-radius: 5px;
 }
@@ -101,7 +115,22 @@ section {
 }
 .guess-button {
   width: 70%;
-  background-color: #ffd700;
+  background: radial-gradient(
+      ellipse farthest-corner at right bottom,
+      #8e8e9f 0%,
+      #7e7e98 8%,
+      #6c6c74 30%,
+      #565663 40%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse farthest-corner at left top,
+      #ddddec 0%,
+      #cdcde3 8%,
+      #adadc3 25%,
+      #888892 62.5%,
+      #6c6c74 100%
+    );
   color: #191919;
   font-weight: bold;
 }
@@ -128,18 +157,18 @@ section {
   margin-bottom: 20px;
 }
 #main-page {
-  color: gray;
+  color: rgb(126, 126, 233);
   font-size: 20px;
 }
 #main-page:hover {
-  color: gold;
+  color: #ddddec;
 }
 .login-input,
 .password-input {
   width: 90%;
 }
 .login-labels {
-  color: #f9f9f9;
+  color: #c4c4e6;
   font-size: 25px;
 }
 .leaderboard-links,
@@ -147,14 +176,28 @@ section {
   margin: 30px 0px 0px 10px;
 }
 .leaderboard-button {
-  background-color: #ffd700;
+  background: radial-gradient(
+      ellipse farthest-corner at right bottom,
+      #8e8e9f 0%,
+      #7e7e98 8%,
+      #6c6c74 30%,
+      #565663 40%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse farthest-corner at left top,
+      #ddddec 0%,
+      #cdcde3 8%,
+      #adadc3 25%,
+      #888892 62.5%,
+      #6c6c74 100%
+    );
   color: #191919;
   font-weight: bold;
   border-radius: 10px;
 }
 .leaderboard-button:hover {
   cursor: pointer;
-  background-color: #7f6b00;
   color: #f9f9f9;
 }
 .leaderboard-header,
@@ -222,7 +265,22 @@ section {
   margin-bottom: 20px;
 }
 .play-button {
-  background-color: #ffd700;
+  background: radial-gradient(
+      ellipse farthest-corner at right bottom,
+      #8e8e9f 0%,
+      #7e7e98 8%,
+      #6c6c74 30%,
+      #565663 40%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse farthest-corner at left top,
+      #ddddec 0%,
+      #cdcde3 8%,
+      #adadc3 25%,
+      #888892 62.5%,
+      #6c6c74 100%
+    );
   color: #191919;
   font-weight: bold;
   width: 80%;
@@ -232,7 +290,6 @@ section {
 }
 .play-button:hover {
   cursor: pointer;
-  background-color: #7f6b00;
   color: #f9f9f9;
 }
 .stat-score,
@@ -278,7 +335,7 @@ section {
     );
 }
 .username-entry {
-  color: rgb(110, 107, 170);
+  color: gold;
   text-align: center;
   -webkit-animation: glow 1s ease-in-out infinite alternate;
   -moz-animation: glow 1s ease-in-out infinite alternate;
@@ -290,15 +347,15 @@ button:hover {
 
 @-webkit-keyframes glow {
   from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px rgb(140, 138, 216),
-      0 0 40px rgb(140, 138, 216), 0 0 50px rgb(140, 138, 216),
-      0 0 60px rgb(140, 138, 216), 0 0 70px rgb(140, 138, 216);
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px gold,
+      0 0 40px gold, 0 0 50px gold,
+      0 0 60px gold, 0 0 70px gold;
   }
   to {
-    text-shadow: 0 0 20px #fff, 0 0 30px rgb(140, 138, 216),
-      0 0 40px rgb(140, 138, 216), 0 0 50px rgb(140, 138, 216),
-      0 0 60px rgb(140, 138, 216), 0 0 70px rgb(140, 138, 216),
-      0 0 80px rgb(140, 138, 216);
+    text-shadow: 0 0 20px #fff, 0 0 30px gold,
+      0 0 40px gold, 0 0 50px gold,
+      0 0 60px gold, 0 0 70px gold,
+      0 0 80px gold;
   }
 }
 
