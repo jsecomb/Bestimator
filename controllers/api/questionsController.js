@@ -17,7 +17,7 @@ router.get("/", function (req, res) {
     {
       UserId: req.user.id,
       createdAt: {
-        [Op.between]: [today.toUTCString(), tomorrow.toUTCString()]
+        [Op.between]: [today, tomorrow]
       }
     }
   }).then(answers => {
