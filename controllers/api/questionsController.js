@@ -7,16 +7,17 @@ const Op = require("sequelize").Op;
  */
 router.get("/", function (req, res) {
   var today = new Date();
+  today.setDate(today.getDate());
+  today.setHours(0,0,0,0);
   var tomorrow = new Date();
   tomorrow.setDate(today.getDate() + 1, 0, 0);
-  var yesterday = new Date();
-  yesterday.setDate(today.getDate() - 1, 0, 0);
+  tomorrow.setHours(0,0,0,0);
   db.Answer.findAll({
     where:
     {
       UserId: req.user.id,
       createdAt: {
-        [Op.between]: [yesterday, tomorrow]
+        [Op.between]: [today.toUTCString(), tomorrow.toUTCString()]
       }
     }
   }).then(answers => {
