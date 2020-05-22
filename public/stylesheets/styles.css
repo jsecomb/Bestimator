@@ -172,7 +172,8 @@ section {
   color: white;
   font-size: 40px;
 }
-.leaderboard-gold {
+.leaderboard-gold,
+.score-list-gold {
   background: radial-gradient(
       ellipse farthest-corner at right bottom,
       #fedb37 0%,
