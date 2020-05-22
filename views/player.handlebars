@@ -43,8 +43,16 @@
         </div>
         <!-- user scores items -->
         <ul id="userScores" class="userScores">
-            <li class="score-list-item"><span class="player-info"><span class="board-item">date</span> | <span
-                        class="board-item">score</span></li>
+            <li class="score-list-item"><span class="player-info"><span class="board-item" id="1date">date</span> | <span
+                        class="board-item" id="1score">score</span></li>
+            <li class="score-list-item"><span class="player-info"><span class="board-item" id="2date">date</span> | <span
+                        class="board-item" id="2score">score</span></li>
+            <li class="score-list-item"><span class="player-info"><span class="board-item" id="3date">date</span> | <span
+                        class="board-item" id="3score">score</span></li>
+            <li class="score-list-item"><span class="player-info"><span class="board-item" id="4date">date</span> | <span
+                        class="board-item" id="4score">score</span></li>
+            <li class="score-list-item"><span class="player-info"><span class="board-item" id="5date">date</span> | <span
+                        class="board-item" id="5score">score</span></li>
         </ul>
     </div>
 
@@ -85,6 +93,12 @@
         // DISPLAY EACH OF USER'S DAILY SCORES
         $.get("/api/answers/fiveDayAnswers", function (data) {
             console.log(data);
+            let line = 1;
+            data.forEach(day => {
+                $(`#${line}date`).text(`Day: ${day.date.substring(0,10)}`);
+                $(`#${line}score`).text(`Score: ${Math.floor(day.score)}`);
+                line++;
+            })
         });
 
         // PREVENT USER FROM GOING TO GAME PAGE IF THEY HAVE ALREADY PLAYED TODAY

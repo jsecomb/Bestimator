@@ -446,8 +446,8 @@ button:hover {
   .leaderboard-list-item,
   .score-list-item {
     font-size: 27px;
-    padding-left: 300px;
-    padding-right: 300px;
+    padding-left: 200px;
+    padding-right: 200px;
   }
   .stat-score,
   .stat-rank {
