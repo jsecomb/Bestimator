@@ -37,28 +37,55 @@ router.get("/", function (req, res) {
 });
 
 router.get("/fiveDayAnswers", function (req, res) {
+  //create dates for to define day ranges for scores we want to gather. This code is NOT dry, but it works!
   var today = new Date();
   var tomorrow = new Date();
   tomorrow.setDate(today.getDate() + 1, 0, 0);
+  var yesterday = new Date();
+  yesterday.setDate(today.getDate() - 1, 0, 0);
+  var twoDaysAgo = new Date();
+  twoDaysAgo.setDate(today.getDate() - 2, 0, 0);
+  var threeDaysAgo = new Date();
+  threeDaysAgo.setDate(today.getDate() - 3, 0, 0);
   var fourDaysAgo = new Date();
   fourDaysAgo.setDate(today.getDate() - 4, 0, 0);
+  var fiveDaysAgo = new Date();
+  fiveDaysAgo.setDate(today.getDate() - 5, 0, 0);
+  //get all answers from four days ago to (and including) today
   db.Answer.findAll({
     where:
     {
       UserId: req.user.id,
       createdAt: {
-        [Op.between]: [fourDaysAgo, tomorrow]
+        [Op.between]: [fiveDaysAgo, tomorrow]
       }
     }
   })
-  .then(scores => {
-    let answerScores = scores.map(answer => answer.answer_score);
-    let total = 0;
-    answerScores.forEach(score => total += score);
-    let averageScore = total/answerScores.length;
-    res.json(averageScore);
-  })
-  .catch(err => res.status(422).json(err));
+    .then(scores => {
+      const fiveDayAnswers = []; //empty array that will be filled with average score for each day
+      //getDayAverage gets average score for a day range
+      function getDayAverage(start, end) {
+        let total = 0;
+        let dayAnswers = scores.filter(answer => answer.createdAt > start && answer.createdAt < end)
+        let dayScores = dayAnswers.map(answer => answer.answer_score);
+        dayScores.forEach(score => total += score);
+        if (dayScores.length === 0) {
+          fiveDayAnswers.push({date: start, score: "no score"});
+        }
+        else {
+          let averageScore = (total / dayScores.length);
+          fiveDayAnswers.push({date: start, score: averageScore});
+        }
+      }
+      //call getDayAverage on the past 5 days
+      getDayAverage(yesterday, tomorrow);
+      getDayAverage(twoDaysAgo, today);
+      getDayAverage(threeDaysAgo, yesterday);
+      getDayAverage(fourDaysAgo, twoDaysAgo);
+      getDayAverage(fiveDaysAgo, threeDaysAgo);
+      res.json(fiveDayAnswers);
+    })
+    .catch(err => res.status(422).json(err));
 });
 
 
@@ -68,7 +95,6 @@ router.get("/playerScore", function (req, res) {
 
     .then(usersWithAnswers => {
       const filteredUsers = usersWithAnswers.filter(User => User.Answers !== null);
-      console.log(filteredUsers);
       const leaderboard = filteredUsers.map(User => {
         let totalScore = 0;
         User.Answers.forEach(answer => {
